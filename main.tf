@@ -50,17 +50,6 @@ module "security_group" {
   ]
 }
 
-
-
-# Create Key Pair using AWS Module
-module "key_pair" {
-  source  = "terraform-aws-modules/key-pair/aws"
-  version = "2.0.0"
-
-  key_name   = var.key_name
-  public_key = file("${var.key_name}.pub")
-}
-
 # Deploy EC2 Instance using AWS Module
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
@@ -69,7 +58,7 @@ module "ec2_instance" {
   name           = "Arjun-Server"
   instance_type  = var.instance_type
   ami           = "ami-09e143e99e8fa74f9"
-  key_name       = module.key_pair.key_pair_name
+  key_name       = var.key_name
   subnet_id      = module.vpc.public_subnets[0]
   vpc_security_group_ids = [module.security_group.security_group_id]
 

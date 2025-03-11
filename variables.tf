@@ -25,7 +25,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "Name of the SSH Key Pair"
   type        = string
-  default     = "my-key-arjun1"
+  default     = "my-key"
 }
 variable "rules" {
   description = "Security group rules: from_port, to_port, protocol"
