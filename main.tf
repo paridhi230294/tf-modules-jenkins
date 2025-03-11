@@ -55,7 +55,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "5.0.0"
 
-  name           = "Arjun-Server"
+  name           = "Paridhi-Server"
   instance_type  = var.instance_type
   ami           = "ami-09e143e99e8fa74f9"
   key_name       = var.key_name
